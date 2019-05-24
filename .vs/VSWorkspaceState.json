@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\scripts",
-    "\\src\\app"
+    "\\e2e\\src",
+    "\\production",
+    "\\src",
+    "\\src\\app",
+    "\\src\\assets",
+    "\\src\\components",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\scripts\\deploy.js",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
