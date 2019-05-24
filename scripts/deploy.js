@@ -1,6 +1,5 @@
-import { spawn } from 'child_process';
-import { testdeploy } from './testdeploy';
-declare var process;
+const cp = require('child_process');
+
 const now = new Date();
 
 let branch = process.argv0 || 'master';
@@ -8,7 +7,7 @@ let branch = process.argv0 || 'master';
 //  branch = process.argv[2];
 //}
 console.log("Using Branch", branch);
-const child = spawn(`
+const child = cp.spawn(`
   npm run-script build &&
   git add . &&
   git commit -am "Updating code at ${now.toUTCString()} and publishing" &&
@@ -30,5 +29,5 @@ child.stderr.on('error', (err) => {
 
 child.on('close', (closing) => {
   console.log(`Child process exited with code ${closing}`);
-  testdeploy();
+  //testdeploy();
 });
