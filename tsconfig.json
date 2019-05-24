@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./production",
-    "rootDir": "./src",
+    "rootDir": "./",
     "sourceMap": true,
     "declaration": false,
     "module": "esnext",

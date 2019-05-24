@@ -1,4 +1,5 @@
 import { spawn } from 'child_process';
+import { testdeploy } from './testdeploy';
 declare var process;
 const now = new Date();
 
@@ -29,4 +30,5 @@ child.stderr.on('error', (err) => {
 
 child.on('close', (closing) => {
   console.log(`Child process exited with code ${closing}`);
+  testdeploy();
 });
