@@ -1,14 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\e2e\\src",
     "\\production",
     "\\src",
     "\\src\\app",
     "\\src\\assets",
     "\\src\\components",
-    "\\src\\environments"
+    "\\src\\environments",
+    "\\src\\MaterialTheme"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\MaterialTheme\\customPalettes.scss",
   "PreviewInSolutionExplorer": false
 }
