@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
+@import './customPalette';
+$my-primary: mat-palette($profileuiapp-primary);
+$my-accent: mat-palette($profileuiapp-accent);
+$my-warn: mat-palette($profileuiapp-warn);
 
-$my-primary: mat-palette($mat-indigo);
-$my-accent: mat-palette($mat-pink);
-$my-warn: mat-palette($mat-red);
-
-$my-theme: mat-light-theme($my-primary, $my-accent);
+$my-theme: mat-dark-theme($my-primary,  $my-accent, $my-warn);
