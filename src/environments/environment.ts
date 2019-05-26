@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  menu: {
+
+    foreground: {
+      colors: {
+        primary: "#24242f",
+        accent: "#00a194",
+        contrast: "#b3cbd0",
+        warn: "#163169",
+        danger: "#272733"
+      }
+    }
+  }
 };
 
 /*

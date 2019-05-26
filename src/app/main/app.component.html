@@ -1,4 +1,4 @@
-<div class="minigameframe">
+<div #GameContainer class="minigameframe">
 
   <canvas #Main class="module">
 
@@ -6,11 +6,11 @@
   </canvas>
 
 </div>
-<div class="minigamemenuframe">
+<div #MenuContainer class="minigamemenuframe">
 
 
-  <app-foreground></app-foreground>
-  <app-background></app-background>
+  <app-foreground defaultColor="{{menuDefault}}"></app-foreground>
+  <app-background defaultColor="{{menuDefault}}"></app-background>
   
 
 </div>
