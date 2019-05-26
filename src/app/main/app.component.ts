@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { desire } from 'Webworkers/pixelOperationInBoundary';
+import { desire } from '../../../webworkers/pixelOperationInBoundary';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
