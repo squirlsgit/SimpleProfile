@@ -31,4 +31,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ts-node npm i -g ts-node
 nodemon npm i -g nodemon
+
+## requires recent version of node
+npm i -g tspath 
+
+## install 3.4+ version of typescript
+npm i -g typescript@latest
+
 herokuCLI https://devcenter.heroku.com/articles/heroku-cli
