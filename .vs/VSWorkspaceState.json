@@ -4,11 +4,12 @@
     "\\production",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\main",
     "\\src\\assets",
     "\\src\\components",
     "\\src\\environments",
     "\\src\\MaterialTheme"
   ],
-  "SelectedNode": "\\src\\materialTheme.scss",
+  "SelectedNode": "\\src\\MaterialTheme\\customPalette.scss",
   "PreviewInSolutionExplorer": false
 }

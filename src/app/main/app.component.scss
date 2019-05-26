@@ -1,2 +1,42 @@
 /*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
 /*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
+
+@import '../../MaterialTheme/customPalette';
+.minigameframe {
+  background-color: map-get($profileuiapp-accent, 600);
+  color: map-get(map-get($profileuiapp-accent, contrast), 600);
+  width: 100vw;
+  height: 80vh;
+  margin: 0;
+  padding: 0;
+}
+.minigamemenuframe {
+  background-color: map-get($profileuiapp-primary, 600);
+  color: map-get(map-get($profileuiapp-primary, contrast), 600);
+  width: 100vw;
+  height: 20vh;
+  margin: 0;
+  padding: 0;
+}
+
+.moduleframe {
+  background-color: map-get($profileuiapp-primary, A100);
+  color: map-get(map-get($profileuiapp-primary, contrast), A100);
+}
+
+.aboutframe {
+  background-color: map-get($profileuiapp-primary, A100);
+  color: map-get(map-get($profileuiapp-primary, contrast), A100);
+}
+
+.contactframe {
+  background-color: map-get($profileuiapp-accent, A100);
+  color: map-get(map-get($profileuiapp-accent, contrast), A100);
+}
+
+.warning-hidden {
+  display: none;
+  background-color: map-get($profileuiapp-warn, A100);
+  color: map-get(map-get($profileuiapp-warn, contrast), A100);
+}
+
