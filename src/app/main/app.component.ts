@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { palette } from '../../Palettes/definition.js';
 const palettes = require("../../Palettes/palettes.json");
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -64,6 +65,10 @@ export class AppComponent implements OnInit, AfterViewInit {
    
   }
   ngAfterViewInit() {
+
+    if (environment.production) {
+      alert(" App is Work in Progress ");
+    }
 
   }
 }
