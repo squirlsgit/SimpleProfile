@@ -2,7 +2,9 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../production/app",
-    "types": []
+    "resolveJsonModule":  true,
+    "types": [ "node" ],
+    "typeRoots": ["../node_modules@types"]
   },
   "exclude": [
     "test.ts",

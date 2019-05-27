@@ -1,41 +1,40 @@
-# UI
+## Notes on Purpose of App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+This project is for me to test and demo some animations and ideas I brainstormed.
+Inbetween work I'll be updating this project for a while.
 
 ## Install
 
-ts-node npm i -g ts-node
-nodemon npm i -g nodemon
+ts-node: npm i -g ts-node
+nodemon: npm i -g nodemon
+make-runnable: npm i -g make-runnable
+
 
 ## requires recent version of node
-npm i -g tspath 
+tspath: npm i -g tspath 
 
 ## install 3.4+ version of typescript
-npm i -g typescript@latest
+typescript: npm i -g typescript@latest
 
 herokuCLI https://devcenter.heroku.com/articles/heroku-cli
+
+
+## getMaterialDesignFormat
+URL: https://mcg.mbitson.com
+
+## publish Json from MaterialDesignPalette File
+## cd to root of project.
+node tools/paletteToJson.js <Folder-Directory> <Base-Name> <Ouput-Path?>
+## Output Path defaulted to Folder Directory + baseName + .json
+## Output Path, if defined, should describe a relative path at the Folder Directory.
+
+#  Use this Command if scss file is ./src/Palettes/palettes.scss | 
+#  It will publish & overwrite palettes.json in that directory.
+node tools/paletteToJson.js ./src/Palettes palettes
+
+# Then update files that depend on palettes.scss and palettes.json ~~~~~
+
+
+## Ico Converter
+
+URL: https://icoconvert.com/

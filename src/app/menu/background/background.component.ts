@@ -1,7 +1,7 @@
 
 import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { environment } from '../../../environments/environment';
-
+import { CanvasModule } from '../../CanvasModule';
 
 
 
@@ -10,10 +10,13 @@ import { environment } from '../../../environments/environment';
   templateUrl: './background.component.html',
   styleUrls: ['./background.component.scss']
 })
-export class BackgroundComponent implements OnInit {
+export class BackgroundComponent extends CanvasModule implements OnInit {
   @ViewChild('Menu') menuCanvas: ElementRef;
-  @Input() defaultColor: string;
-  constructor() { }
+
+  constructor()
+  {
+    super(1, 0.2);
+  }
 
   ngOnInit() {
   }

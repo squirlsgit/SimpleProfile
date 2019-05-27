@@ -1,0 +1,6 @@
+@import '../../commonCanvas';
+
+.canvas-module {
+  @include canvas-module;
+  z-index: 3;
+}

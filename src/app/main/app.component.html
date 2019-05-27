@@ -1,16 +1,7 @@
 <div #GameContainer class="minigameframe">
-
-  <canvas #Main class="module">
-
-
-  </canvas>
-
+  <app-sunlight [palette]="Sunlight"></app-sunlight>
 </div>
 <div #MenuContainer class="minigamemenuframe">
-
-
-  <app-foreground defaultColor="{{menuDefault}}"></app-foreground>
-  <app-background defaultColor="{{menuDefault}}"></app-background>
-  
-
+  <app-foreground [palette]="MenuObscured"></app-foreground>
+  <app-background [palette]="MenuFocus"></app-background>
 </div>

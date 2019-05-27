@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ElementRef, ViewChild, Input } from '@angular/core';
+import { CanvasModule, Container } from '../../CanvasModule';
 import { environment } from '../../../environments/environment';
 
 
@@ -7,23 +8,23 @@ import { environment } from '../../../environments/environment';
   templateUrl: './foreground.component.html',
   styleUrls: ['./foreground.component.scss']
 })
-export class ForegroundComponent implements AfterViewInit {
+export class ForegroundComponent extends CanvasModule implements AfterViewInit {
   @ViewChild('Menu') menuCanvas: ElementRef;
-  @Input() defaultColor: string;
-  // Canvas Calculation Variables
 
-  public menublocks: number = 7;
-  public menuInflectionPoints: any = { 1: true, 4: true };
+  // Canvas Calculation Variables
+  public deltaheight: number = 0.98;
+  public menublocks: number = 100;
+  public menuInflectionPoints: any = { 0: true, 25: true, 50: true, 75: true };
   public get MenuWidth(): number {
-    console.log("window width   ", this.Menu.width);
+    //console.log("window width   ", this.Menu.width);
     return this.Menu.width;
   }
   public get MenuHeight(): number {
-    console.log("window height    ", this.Menu.height);
+    //console.log("window height    ", this.Menu.height);
     return this.Menu.height * 0.8;
   }
   public get MenuPadding(): number {
-    return this.MenuWidth * 0.1;
+    return this.MenuWidth * 0.025;
   }
 
   public get BlockContainerWidth(): number {
@@ -40,44 +41,67 @@ export class ForegroundComponent implements AfterViewInit {
   public get Menu(): HTMLCanvasElement {
     return this.menuCanvas.nativeElement;
   }
-  constructor() { }
 
-  ngAfterViewInit() {
-    this.Menu.setAttribute("width", `${window.screen.width}`);
-    this.Menu.setAttribute("height", `${window.screen.height}`)
-    
-    this.initializeMenuCanvas(this.Menu).then(success => { console.log(success); });
+  public stepAnimation: NodeJS.Timer;
 
-    window.onresize = (event) => {
-      console.log("Window Resize", event);
-      this.initializeMenuCanvas(this.Menu).then(success => { console.log(success); });
-    };
-
+  constructor()
+  {
+    super(1, 0.2);
   }
 
-  async initializeMenuCanvas(canvas: HTMLCanvasElement): Promise<any> {
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight * 0.2;
+  ngAfterViewInit() {
 
+    window.addEventListener("resize", this.listenResize(this.Menu, this.initMenu.bind(this)));
+    this.listenResize(this.Menu, this.initMenu.bind(this))(null);
 
+    //this.stepAnimation = setInterval(() => {
+      
+    //  let newinflectionpoints = {};
+    //  for (var inflection in this.menuInflectionPoints) {
+    //    if (Number(inflection) + 10 == this.menublocks) {
+    //      newinflectionpoints[0] = true;
+    //    } else {
+    //      newinflectionpoints[Number(inflection) + 1] = true;
+    //    }
+
+    //  }
+    //  this.menuInflectionPoints = newinflectionpoints;
+    //  this.listenResize(this.Menu, this.initMenu.bind(this))(null);
+    //}, 50);
+  }
+
+  async initMenu(canvas: HTMLCanvasElement): Promise<any> {
+
+    //console.log("Initializing Obscured Menu");
     let ctx = canvas.getContext('2d');
-    //ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = environment.menu.foreground.colors.primary;
-    //ctx.transform(1, 0, -0.1, 1, 0, 0);
+    ctx.fillStyle = this.Scheme.accent;
+    //console.log("Menu Blocks", this.menublocks);
+    let next: Array<Container> = new Array<Container>(this.menublocks);
+   
+    let delta: number = 0;
+    let start: number = Number(Object.keys(this.menuInflectionPoints)[0]);
+    for (let i = 0; i < this.menublocks; i++) {
 
-
-
-    let next: any = { left: 0 + this.MenuPadding, top: 0, height: this.MenuHeight };
-
-
-    for (let start = 0; start < this.menublocks; start++) {
-      console.log("next", next);
-      if (this.menuInflectionPoints[start]) {
-        next.height = this.MenuHeight;
+      if (this.menuInflectionPoints[start + delta]) {
+        start += delta;
+        delta = 0;
       }
-      next = this.drawBlock(ctx, next.left, 0, next.height);
+      if (start + delta == this.menublocks) {
+        start = 0 - delta;
+      }
+      next[start + delta] = {
+        left: this.MenuPadding + (start + delta) * this.BlockContainerWidth,
+        top: 0,
+        width: this.BlockBaseWidth,
+        height: this.MenuHeight * Math.pow(this.deltaheight, delta)
+      };
+      delta++;
     }
+
+    next.forEach(block => {
+      this.drawBlock(ctx, block);
+    })
+
 
     return Promise.resolve(true);
   }
@@ -87,10 +111,13 @@ export class ForegroundComponent implements AfterViewInit {
     return Promise.resolve(true);
   }
 
-  drawBlock(context: CanvasRenderingContext2D, left: number, top: number, height): any {
-    context.fillRect(left, top, this.BlockBaseWidth, height);
-    return { left: left + this.BlockContainerWidth, height: height * 0.7 };
+  drawBlock(context: CanvasRenderingContext2D, block: Container) {
+    context.fillRect(block.left, block.top, block.width, block.height);
+
   }
+    
+
 
 
 }
+

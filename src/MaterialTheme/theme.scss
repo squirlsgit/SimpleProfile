@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
-@import './customPalette';
-$my-primary: mat-palette($profileuiapp-primary);
-$my-accent: mat-palette($profileuiapp-skybluehighlight);
-$my-warn: mat-palette($profileuiapp-softaqua);
+@import '../Palettes/palettes';
+$my-primary: mat-palette($primary);
+$my-accent: mat-palette($skybluehighlight);
+$my-warn: mat-palette($softaqua);
 
 $my-theme: mat-dark-theme($my-primary,  $my-accent, $my-warn);
