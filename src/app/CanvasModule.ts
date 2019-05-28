@@ -29,10 +29,11 @@ export class CanvasModule {
     this.rh = h;
   }
 
-  public listenResize(canvas: HTMLCanvasElement, callback: any = null) {
+  public listenResize(canvas: HTMLCanvasElement,callback: any = null) {
     return (event) => {
       //console.log("RESETTING SIZE");
       this.setDimensions(canvas);
+
       this.initTemplate(canvas);
       if (callback) {
         callback(canvas);
@@ -60,10 +61,11 @@ export class CanvasModule {
     return ctx;
   }
   public initTemplate(canvas: HTMLCanvasElement) {
-    let ctx = this.resetCanvas(canvas);
-    console.log("Using Style Scheme", this.Scheme.primary);
-    ctx.fillStyle = this.Scheme.primary || "#ffffff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    canvas.style.background = this.Scheme.primary;
+    //let ctx = this.resetCanvas(canvas);
+    //console.log("Using Style Scheme", this.Scheme.primary);
+    //ctx.fillStyle = this.Scheme.primary || "#ffffff";
+    //ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 }
 
