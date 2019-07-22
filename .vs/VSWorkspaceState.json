@@ -1,15 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\production",
     "\\src",
     "\\src\\app",
     "\\src\\app\\main",
-    "\\src\\assets",
-    "\\src\\components",
-    "\\src\\environments",
-    "\\src\\MaterialTheme"
+    "\\src\\app\\menu",
+    "\\src\\app\\menu\\background",
+    "\\src\\app\\menu\\foreground",
+    "\\src\\app\\scenes",
+    "\\src\\app\\scenes\\sunlight"
   ],
-  "SelectedNode": "\\src\\MaterialTheme\\customPalette.scss",
+  "SelectedNode": "\\src\\app\\menu\\background\\background.component.ts",
   "PreviewInSolutionExplorer": false
 }

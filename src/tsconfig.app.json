@@ -22,6 +22,16 @@
   ],
   "baseUrl": "./",
   "paths": {
-    "WebWorkers/*":  ["../webworkers"]
+    "@WebWorkers/*": [ "../webworkers/*" ],
+    "@Definitions/*": [ "./definitions/*" ],
+    "@GameObjects/*": [ "./GameObjects/*" ],
+    "@Palettes/*": [ "./Palettes/*" ],
+    "@Scenes/*": [ "./app/scenes/*" ],
+    "@Sunlight/*": [ "./app/scenes/sunlight/sunlight.component.ts" ],
+    "@Display/*": [ "./app/DisplayManager.ts" ],
+    "@Scripts/*": [ "./scripts/*" ],
+    "@Helpers/*": [ "./scripts/helpers" ],
+    "@Inheritables/*": [ "./scripts/inheritables/*" ],
+    "@Menu/*": [ "./app/menu/*" ]
   }
 }

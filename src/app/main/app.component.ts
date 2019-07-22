@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angula
 import { palette } from '../../Palettes/definition.js';
 const palettes = require("../../Palettes/palettes.json");
 import { environment } from '../../environments/environment';
+
+//import { display } from 'squirlsengine2d';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,6 @@ import { environment } from '../../environments/environment';
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild("GameContainer") _gcontainer: ElementRef;
   @ViewChild("MenuContainer") _mcontainer: ElementRef;
-
   // Apply Color Scheme to Canvas Modules
 
   public get Sunlight(): palette

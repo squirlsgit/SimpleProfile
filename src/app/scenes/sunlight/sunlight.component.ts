@@ -1,15 +1,15 @@
 // ../../../<ROOT>
 import { Component, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { CanvasModule } from '../../CanvasModule';
+import { Screen } from '../../DisplayManager';
 //import { palette } from '../../../Palettes/definition';
-import { Sun } from './Objects/sun';
-import { Position } from '../../canvas/Simple';
+import { Sun } from 'squirls';
+import { Position } from 'squirls/Engines/2D/Helpers/DataTypes/Simple';
 @Component({
   selector: 'app-sunlight',
   templateUrl: './sunlight.component.html',
   styleUrls: ['./sunlight.component.scss']
 })
-export class SunlightComponent extends CanvasModule implements AfterViewInit {
+export class SunlightComponent extends Screen implements AfterViewInit {
   @ViewChild('Sunlight') sunlight: ElementRef;
 
   public sun: Sun;

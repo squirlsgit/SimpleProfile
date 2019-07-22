@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ElementRef, ViewChild, Input } from '@angular/core';
-import { CanvasModule, Container } from '../../CanvasModule';
+import { Screen, Container } from '../../DisplayManager';
 import { environment } from '../../../environments/environment';
 
 
@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   templateUrl: './foreground.component.html',
   styleUrls: ['./foreground.component.scss']
 })
-export class ForegroundComponent extends CanvasModule implements AfterViewInit {
+export class ForegroundComponent extends Screen implements AfterViewInit {
   @ViewChild('Menu') menuCanvas: ElementRef;
 
   // Canvas Calculation Variables

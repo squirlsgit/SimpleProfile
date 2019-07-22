@@ -3,7 +3,7 @@
 import { Input } from '@angular/core';
 import { palette } from '../Palettes/definition';
 
-export class CanvasModule {
+export class Screen {
   public onSchemeUpdate: Function = null;
   public _scheme: palette = null;
   @Input("palette")
